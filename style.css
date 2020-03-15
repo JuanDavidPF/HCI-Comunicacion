@@ -18,16 +18,18 @@ main {
     background-color: rgb(255, 255, 255);
     width: 1600px;
     height: 700px;
-    justify-content: space-between;
-    align-items: flex-end;
-    overflow: hidden;
+
 }
 
 .board {
-    background-color: violet;
+
+    transition: height 0.5s ease-in-out;
     display: flex;
-    transition: height .5s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 100%;
+    overflow-y: scroll;
     height: 25%;
 }
 
@@ -40,7 +42,6 @@ main {
     width: 100%;
     height: 75%;
     transition: height .5s ease-in-out;
-
     overflow-y: scroll;
 }
 
@@ -64,9 +65,8 @@ main {
 .poolWords {
 
     display: flex;
-    margin-top: 50px;
+    margin-top: 100px;
     width: 90%;
-    height: 100%;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -83,6 +83,14 @@ main {
     text-align: center;
     border-radius: 30px;
     font-family: 'Quicksand', sans-serif;
+
+
+}
+
+.boardCard {
+    background-color: teal;
+    color: white;
+
 
 
 }

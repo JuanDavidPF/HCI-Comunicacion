@@ -9,7 +9,7 @@ despertó aterrorizado al darse cuenta de que no había pinturas en la cabaña, 
 
 
 let phrase = story.split(". ")
-let phraseBackup = phrase
+let phraseBackup = story.split(". ")
 
 let board = document.querySelector(".board")
 let pool = document.querySelector(".pool")
@@ -20,6 +20,9 @@ let poolOpened = true
 
 let wordCards
 
+let mistakes = 0
+let boardCards
+
 
 
 
@@ -28,9 +31,10 @@ shuffle(phrase)
 for (let i = 0; i < phrase.length; i++) {
     let p = document.createElement('p')
     phrase[i] += "."
-    phraseBackup += "."
+    phraseBackup[i] += "."
     p.textContent = phrase[i];
     p.classList.add("wordCard")
+    p.classList.add("poolCard")
     poolWords.appendChild(p);
 }
 
@@ -43,18 +47,32 @@ btnPool.addEventListener("click", poolMovement)
 wordCards = document.querySelectorAll(".wordCard")
 for (let i = 0; i < wordCards.length; i++) {
     wordCards[i].addEventListener("pointerdown", function () {
-        poolMovement()
 
-        board.style.height = "550px"
-        pool.style.height = "150px"
-        setTimeout(function () {
-            poolOpened = false;
-            poolClosed = true;
-        }, 500)
+
+
+        if (wordCards[i].classList.contains("poolCard")) {
+
+
+            wordCards[i].classList.remove("poolCard")
+            wordCards[i].classList.add("boardCard")
+            board.appendChild(wordCards[i])
+            boardCards = document.querySelectorAll(".boardCard")
+
+            mistakeCount()
+
+
+        } else if (wordCards[i].classList.contains("boardCard")) {
+
+            wordCards[i].classList.remove("boardCard")
+            wordCards[i].classList.add("poolCard")
+            poolWords.appendChild(wordCards[i])
+            mistakes = 0
+
+
+        }
 
     })
 }
-
 
 
 
@@ -105,4 +123,29 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+
+//finish
+
+
+function mistakeCount() {
+
+    if (boardCards.length == phraseBackup.length) {
+
+        for (let i = 0; i < phraseBackup.length; i++) {
+
+            if (phraseBackup[i] != boardCards[i].textContent) {
+                mistakes += 1
+            }
+        }
+
+        if (mistakes == 0) {
+            alert("VICTORIA")
+        } else {
+            alert("TUVISTE " + mistakes + " ERRORES")
+        }
+
+    }
+
 }
