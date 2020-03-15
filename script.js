@@ -11,7 +11,7 @@ despertó aterrorizado al darse cuenta de que no había pinturas en la cabaña, 
 let phrase = story.split(". ")
 let phraseBackup = phrase
 
-
+let board = document.querySelector(".board")
 let pool = document.querySelector(".pool")
 let btnPool = document.querySelector(".btnPool")
 let poolWords = document.querySelector(".poolWords")
@@ -19,13 +19,14 @@ let poolClosed = false
 let poolOpened = true
 
 let wordCards
-let cardOnHand
+
+
 
 
 //create phrase cards
 shuffle(phrase)
 for (let i = 0; i < phrase.length; i++) {
-    let p = document.createElement('span')
+    let p = document.createElement('p')
     phrase[i] += "."
     phraseBackup += "."
     p.textContent = phrase[i];
@@ -34,14 +35,36 @@ for (let i = 0; i < phrase.length; i++) {
 }
 
 
-
 //open and closes the word pool
-btnPool.addEventListener("click", function () {
+btnPool.addEventListener("click", poolMovement)
+
+
+//grabs the phrase cards
+wordCards = document.querySelectorAll(".wordCard")
+for (let i = 0; i < wordCards.length; i++) {
+    wordCards[i].addEventListener("pointerdown", function () {
+        poolMovement()
+
+        board.style.height = "550px"
+        pool.style.height = "150px"
+        setTimeout(function () {
+            poolOpened = false;
+            poolClosed = true;
+        }, 500)
+
+    })
+}
+
+
+
+
+//movement of the pool
+
+function poolMovement() {
 
     if (poolOpened) {
-
-        pool.style.height = "0px"
-
+        board.style.height = "550px"
+        pool.style.height = "150px"
         setTimeout(function () {
             poolOpened = false;
             poolClosed = true;
@@ -49,6 +72,8 @@ btnPool.addEventListener("click", function () {
     }
 
     if (poolClosed) {
+
+        board.style.height = "25%"
         pool.style.height = "75%"
         setTimeout(function () {
             poolOpened = true;
@@ -56,22 +81,8 @@ btnPool.addEventListener("click", function () {
         }, 500)
 
     }
-})
-
-
-
-//grabs the phrase cards
-wordCards = document.querySelectorAll(".wordCard")
-for (let i = 0; i < wordCards.length; i++) {
-
-    wordCards[i].addEventListener("pointerdown", function () {
-        cardOnHand = wordCards[i]
-        wordCards[i].remove()
-      
-    })
-
 }
-wordCards = document.querySelectorAll(".wordCard")
+
 
 
 // sort randomlky the phrases array
