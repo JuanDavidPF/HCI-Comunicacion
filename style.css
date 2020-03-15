@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+}
+
+html,
+body {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    background-color: white;
+    width: 1600px;
+    height: 700px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.pool {
+    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 75%;
+    transition: height .5s ease-in-out;
+}
+
+.btnPool {
+    background-color: tomato;
+    position: absolute;
+    border-radius: 50px;
+    width: 75px;
+    height: 75px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    box-shadow: 0 0 0 .1px tomato;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.btnPool:hover {
+    box-shadow: 0 0 0 7px tomato;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.poolWords {
+
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.wordCard {
+    background-color: white;
+    width: 250px;
+    padding: 25px;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 30px;
+    font-family: 'Quicksand', sans-serif;
+
+}
