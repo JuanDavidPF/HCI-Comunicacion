@@ -8,16 +8,17 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-main {
+.game {
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
-    width: 1600px;
-    height: 700px;
+    width: 1280px;
+    height: 720px;
 
 }
 
@@ -31,6 +32,8 @@ main {
     width: 100%;
     overflow-y: scroll;
     height: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .pool {
@@ -65,7 +68,8 @@ main {
 .poolWords {
 
     display: flex;
-    margin-top: 100px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     width: 90%;
     justify-content: space-around;
     align-items: center;
@@ -91,6 +95,59 @@ main {
     background-color: teal;
     color: white;
 
+}
 
+.openTitle {
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E5F6FC;
+    width: 1280px;
+    height: 720px;
+    transition: opacity .5s ease-in-out;
+}
+
+.openTitle>img {
+
+
+    margin-left: 20px;
+}
+
+.openTitle>div {
+    background-color: #F36D6D;
+    font-family: 'Montserrat', sans-serif;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+
+.openTitle>div>h1:nth-child(2) {
+    color: #EED699;
+    font-size: 21px;
+}
+
+.openTitle>div>h1:nth-child(3) {
+    font-size: 29px;
+}
+
+.openTitle>h1 {
+    font-family: 'Roboto', sans-serif;
+    background-color: #EED699;
+    font-size: 20px;
+    padding: 10px 30px;
+    color: #FAFAFA;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
+
+}
+
+.openTitle>h1:hover {
+    box-shadow: 0 0 0 5px #EED699;
+    transition: box-shadow 0.2s ease-in-out;
 
 }

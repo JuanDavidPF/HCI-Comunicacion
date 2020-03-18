@@ -1,3 +1,15 @@
+let openTitle = document.querySelector(".openTitle")
+let openTitleBtn = document.querySelector(".openTitle>h1")
+
+openTitleBtn.addEventListener("click", function () {
+    openTitle.classList.add("slideOutUp")
+    setTimeout(function () {
+        openTitle.style.opacity = "0"
+
+    }, 300)
+})
+
+
 let story = `Un hombre decidió pasar el día explorando unos bosque que nunca había visitado. 
 Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien y cada vez se empezó
 a adentrar más y más en el bosque. Tras horas andando sin rumbo y de noche, encontró una cabaña 
@@ -19,10 +31,8 @@ let poolClosed = false
 let poolOpened = true
 
 let wordCards
-
 let mistakes = 0
 let boardCards
-
 
 
 
