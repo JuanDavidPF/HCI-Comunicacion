@@ -8,10 +8,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+
 }
 
 .game {
@@ -21,12 +18,12 @@ body {
     background-color: #E5F6FC;
     width: 1280px;
     height: 720px;
-
+    margin: auto;
 }
 
 .board {
 
-    transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out, filter 0.5s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,6 +176,8 @@ body {
 
 }
 
+
+
 .instructions {
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -189,6 +188,7 @@ body {
     width: 100%;
     transition: opacity 0.5s ease-in-out;
 }
+
 
 .instructions>h1 {
     font-size: 24px;
@@ -262,6 +262,43 @@ body {
 }
 
 
+.instructionsLvl1 {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.instructionsLvl1>div {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+
+}
+
+.instructionsLvl1>div>div {
+
+    text-align: left;
+    width: 50%;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.instructionsLvl1>div>div>p {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+
+
+
+.instructionsLvl2 {
+    display: none;
+}
+
 @media (max-width: 1280px) {
     .game {
 
@@ -269,9 +306,30 @@ body {
 
     }
 
+    .openTitle {
+
+        width: 100%;
+
+    }
+
+
 }
 
-@media (max-width: 900px) {
+
+@media (max-height: 720px) {
+    .game {
+        height: 100%;
+    }
+
+    .openTitle {
+        height: 100%;
+    }
+
+}
+
+
+
+@media (max-width: 950px) {
 
     .instructions>h1 {
         font-size: 18px;
@@ -299,7 +357,22 @@ body {
         transition: box-shadow 0.2s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
     }
 
+    .instructionsLvl1>div {
+        flex-direction: column;
 
+    }
+
+    .instructionsLvl1>div>div {
+
+        width: 90%;
+
+    }
+
+    .openTitle>div>img {
+
+
+        width: 200px;
+    }
 
 
 }

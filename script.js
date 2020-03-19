@@ -2,10 +2,12 @@ let openTitle = document.querySelector(".openTitle")
 let openTitleLogo = document.querySelector(".openTitle>div")
 let openTitleBtn = document.querySelector(".openTitle>h1")
 let openTitleLvl1 = document.querySelector(".openTitle>img")
-let instrucciones = document.querySelector(".instructions")
-let instruccionesBtn = document.querySelector(".btnHelp")
+let instrucciones = document.querySelectorAll(".instructions")
+let instruccionesBtn = document.querySelectorAll(".btnHelp")
+
 
 let nivel = "menu"
+
 
 
 openTitleBtn.addEventListener("click", function () {
@@ -26,31 +28,33 @@ openTitleBtn.addEventListener("click", function () {
     setTimeout(function () {
         openTitleLvl1.style.opacity = "1"
         openTitleLvl1.classList.add("slideInUp")
-        nivel = "nivel1"
+        nivel = 1
     }, 800)
 
 
-    if (nivel == "nivel1") {
+    if (nivel == 1) {
         openTitle.classList.add("slideOutUp")
 
         setTimeout(function () {
             openTitle.style.opacity = "0"
 
         }, 300)
-
     }
-
 })
 
 
-let story = `Un hombre decidió pasar el día explorando unos bosque que nunca había visitado. 
-Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien y cada vez se empezó
-a adentrar más y más en el bosque. Tras horas andando sin rumbo y de noche, encontró una cabaña 
-entre varios árboles. Al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar. Al 
-ver la cama, pensó que lo mejor sería ir a dormir y si alguien venía explicar lo que había pasado. 
-Una vez estirado, se dio cuenta de que había muchas pinturas extrañas: eran rostros deformados con ojos 
-rojos que le miraban. Intentó ignorarlos, cerró los ojos y se durmió. A la mañana siguiente, 
-despertó aterrorizado al darse cuenta de que no había pinturas en la cabaña, solo ventanas..`
+
+
+let story = `Una chica ha planeado un viaje con su novio, han quedado de encontrarse en la finca de su familia al sur 
+de la ciudad.. Entusiasmada emprende el viaje, al llegar se da cuenta de que su novio se ha retrasado
+ y que deberá esperar.. Sin pensarlo dos veces entra en la casa y pretende prepararle una sorpresa.. Al 
+ entrar la casa empieza a recordar momentos en su infancia, se queda mirando fijamente a ventana. pero se 
+ sorprende al encontrar un hombre realmente apuesto observándola de lejos.. El hombre se acerca y le 
+ tiende la mano, ella amablemente lo saluda y le explica su situación.. El hombre no deja de mirarla con 
+ intensidad y se acerca a sus labios. ella no puede alejarse y pasan la noche juntos.. Al día siguiente se 
+ levanta en la cama de un hospital como única sobreviviente de un accidente de carretera.. Su pronóstico es 
+ reservado, acaba de escuchar que el doctor le dice a su colega.. "A esta paciente no le queda más de 
+ una hora de vida".`
 
 
 let phrase = story.split(". ")
@@ -60,6 +64,7 @@ let board = document.querySelector(".board")
 let pool = document.querySelector(".pool")
 let btnPool = document.querySelector(".btnPool")
 let poolWords = document.querySelector(".poolWords")
+let cardsCreated = false;
 let poolClosed = false
 let poolOpened = true
 
@@ -68,20 +73,27 @@ let mistakes = 0
 let boardCards
 
 
+for (let index = 0; index < instruccionesBtn.length; index++) {
 
-instruccionesBtn.addEventListener("click", function () {
-    instrucciones.classList.add("slideOutUp")
+    instruccionesBtn[index].addEventListener("click", function () {
+        instrucciones[nivel - 1].classList.add("slideOutUp")
 
-    setTimeout(function () {
-        instrucciones.style.opacity = "0";
-    }, 200)
+        setTimeout(function () {
+            instrucciones[nivel - 1].style.opacity = "0";
+        }, 200)
 
-    setTimeout(function () {
-        instrucciones.style.display = "none";
-        poolWords.classList.add("fadeIn")
-        createCards();
-    }, 700)
-})
+        setTimeout(function () {
+            instrucciones[nivel - 1].style.display = "none";
+            board.style.filter = "none"
+            poolWords.classList.add("fadeIn")
+
+            if (cardsCreated == false) {
+                createCards();
+            }
+
+        }, 700)
+    })
+}
 
 
 
@@ -91,8 +103,6 @@ function createCards() {
     shuffle(phrase)
     for (let i = 0; i < phrase.length; i++) {
         let p = document.createElement('p')
-        phrase[i] += "."
-        phraseBackup[i] += "."
         p.textContent = phrase[i];
         p.classList.add("wordCard")
         p.classList.add("poolCard")
@@ -133,8 +143,7 @@ function createCards() {
         })
     }
 
-
-
+    cardsCreated = true
 }
 
 
