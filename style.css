@@ -11,12 +11,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .game {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    align-items: center;
+    background-color: #E5F6FC;
     width: 1280px;
     height: 720px;
 
@@ -32,12 +34,14 @@ body {
     width: 100%;
     overflow-y: scroll;
     height: 25%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+
 }
 
 .pool {
-    background-color: teal;
+    background-color: #A2CCD9;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,19 +53,19 @@ body {
 }
 
 .btnPool {
-    background-color: tomato;
+    background-color: #F36D6D;
     position: absolute;
     border-radius: 50px;
     width: 75px;
     height: 75px;
     transform: translate(0, -50%);
     cursor: pointer;
-    box-shadow: 0 0 0 .1px tomato;
+    box-shadow: 0 0 0 .1px #F36D6D;
     transition: box-shadow 0.2s ease-in-out;
 }
 
 .btnPool:hover {
-    box-shadow: 0 0 0 7px tomato;
+    box-shadow: 0 0 0 7px #F36D6D;
     transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -71,7 +75,8 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     width: 90%;
-    justify-content: space-around;
+
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 
@@ -110,13 +115,21 @@ body {
     transition: opacity .5s ease-in-out;
 }
 
-.openTitle>img {
+.openTitle>div {
 
-
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity .5s ease-in-out;
 }
 
-.openTitle>div {
+.openTitle>div>img {
+
+
+    margin-left: 30px;
+}
+
+.openTitle>div>div {
     background-color: #F36D6D;
     font-family: 'Montserrat', sans-serif;
     color: #F5F5F5;
@@ -125,17 +138,19 @@ body {
     margin-bottom: 30px;
 }
 
-.openTitle>div>h1:nth-child(2) {
+.openTitle>div>div>h1:nth-child(2) {
     color: #EED699;
     font-size: 21px;
 }
 
-.openTitle>div>h1:nth-child(3) {
+.openTitle>div>div>h1:nth-child(3) {
     font-size: 29px;
 }
 
 .openTitle>h1 {
+    text-align: center;
     font-family: 'Roboto', sans-serif;
+    width: 200px;
     background-color: #EED699;
     font-size: 20px;
     padding: 10px 30px;
@@ -146,8 +161,34 @@ body {
 
 }
 
-.openTitle>h1:hover {
+.openTitle>div>h1:hover {
     box-shadow: 0 0 0 5px #EED699;
     transition: box-shadow 0.2s ease-in-out;
+
+}
+
+.openTitle>img {
+    display: none;
+    width: 500px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+
+
+
+@media (max-width: 1280px) {
+
+    .game {
+
+        width: 100%;
+
+
+    }
+
+
 
 }

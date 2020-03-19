@@ -1,12 +1,43 @@
 let openTitle = document.querySelector(".openTitle")
+let openTitleLogo = document.querySelector(".openTitle>div")
 let openTitleBtn = document.querySelector(".openTitle>h1")
+let openTitleLvl1 = document.querySelector(".openTitle>img")
+
+let nivel = "menu"
+
 
 openTitleBtn.addEventListener("click", function () {
-    openTitle.classList.add("slideOutUp")
+    openTitleLogo.classList.add("slideOutUp")
+
+
     setTimeout(function () {
-        openTitle.style.opacity = "0"
+        openTitleLogo.style.opacity = "0"
 
     }, 300)
+
+    setTimeout(function () {
+
+        openTitleLvl1.style.display = "block"
+        openTitleLogo.style.display = "none"
+    }, 700)
+
+    setTimeout(function () {
+        openTitleLvl1.style.opacity = "1"
+        openTitleLvl1.classList.add("slideInUp")
+        nivel = "nivel1"
+    }, 800)
+
+
+    if (nivel == "nivel1") {
+        openTitle.classList.add("slideOutUp")
+
+        setTimeout(function () {
+            openTitle.style.opacity = "0"
+
+        }, 300)
+
+    }
+
 })
 
 
