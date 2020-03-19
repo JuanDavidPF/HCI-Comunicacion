@@ -2,6 +2,8 @@ let openTitle = document.querySelector(".openTitle")
 let openTitleLogo = document.querySelector(".openTitle>div")
 let openTitleBtn = document.querySelector(".openTitle>h1")
 let openTitleLvl1 = document.querySelector(".openTitle>img")
+let instrucciones = document.querySelector(".instructions")
+let instruccionesBtn = document.querySelector(".btnHelp")
 
 let nivel = "menu"
 
@@ -67,53 +69,76 @@ let boardCards
 
 
 
-//create phrase cards
-shuffle(phrase)
-for (let i = 0; i < phrase.length; i++) {
-    let p = document.createElement('p')
-    phrase[i] += "."
-    phraseBackup[i] += "."
-    p.textContent = phrase[i];
-    p.classList.add("wordCard")
-    p.classList.add("poolCard")
-    poolWords.appendChild(p);
+instruccionesBtn.addEventListener("click", function () {
+    instrucciones.classList.add("slideOutUp")
+
+    setTimeout(function () {
+        instrucciones.style.opacity = "0";
+    }, 200)
+
+    setTimeout(function () {
+        instrucciones.style.display = "none";
+        poolWords.classList.add("fadeIn")
+        createCards();
+    }, 700)
+})
+
+
+
+//create text cards
+
+function createCards() {
+    shuffle(phrase)
+    for (let i = 0; i < phrase.length; i++) {
+        let p = document.createElement('p')
+        phrase[i] += "."
+        phraseBackup[i] += "."
+        p.textContent = phrase[i];
+        p.classList.add("wordCard")
+        p.classList.add("poolCard")
+        poolWords.appendChild(p);
+    }
+
+    //open and closes the word pool
+    btnPool.addEventListener("click", poolMovement)
+
+
+
+    //grabs the phrase cards
+    wordCards = document.querySelectorAll(".wordCard")
+    for (let i = 0; i < wordCards.length; i++) {
+
+        wordCards[i].addEventListener("pointerdown", function () {
+
+            if (wordCards[i].classList.contains("poolCard")) {
+
+
+                wordCards[i].classList.remove("poolCard")
+                wordCards[i].classList.add("boardCard")
+                board.appendChild(wordCards[i])
+                boardCards = document.querySelectorAll(".boardCard")
+
+                mistakeCount()
+
+
+            } else if (wordCards[i].classList.contains("boardCard")) {
+
+                wordCards[i].classList.remove("boardCard")
+                wordCards[i].classList.add("poolCard")
+                poolWords.appendChild(wordCards[i])
+                mistakes = 0
+
+            }
+
+        })
+    }
+
+
+
 }
 
 
-//open and closes the word pool
-btnPool.addEventListener("click", poolMovement)
 
-
-//grabs the phrase cards
-wordCards = document.querySelectorAll(".wordCard")
-for (let i = 0; i < wordCards.length; i++) {
-    wordCards[i].addEventListener("pointerdown", function () {
-
-
-
-        if (wordCards[i].classList.contains("poolCard")) {
-
-
-            wordCards[i].classList.remove("poolCard")
-            wordCards[i].classList.add("boardCard")
-            board.appendChild(wordCards[i])
-            boardCards = document.querySelectorAll(".boardCard")
-
-            mistakeCount()
-
-
-        } else if (wordCards[i].classList.contains("boardCard")) {
-
-            wordCards[i].classList.remove("boardCard")
-            wordCards[i].classList.add("poolCard")
-            poolWords.appendChild(wordCards[i])
-            mistakes = 0
-
-
-        }
-
-    })
-}
 
 
 

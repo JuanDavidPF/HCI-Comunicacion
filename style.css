@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .game {
@@ -36,6 +36,8 @@ body {
     height: 25%;
     margin-top: 30px;
     margin-bottom: 30px;
+    filter: blur(3px);
+
 
 
 }
@@ -61,18 +63,18 @@ body {
     transform: translate(0, -50%);
     cursor: pointer;
     box-shadow: 0 0 0 .1px #F36D6D;
-    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
 }
 
 .btnPool:hover {
-    box-shadow: 0 0 0 7px #F36D6D;
+    box-shadow: 0 0 0 5px #F36D6D;
     transition: box-shadow 0.2s ease-in-out;
 }
 
 .poolWords {
 
     display: flex;
-    margin-top: 60px;
+    margin-top: 45px;
     margin-bottom: 60px;
     width: 90%;
 
@@ -147,10 +149,10 @@ body {
     font-size: 29px;
 }
 
-.openTitle>h1 {
+.btn {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    width: 200px;
+    width: 120px;
     background-color: #EED699;
     font-size: 20px;
     padding: 10px 30px;
@@ -161,7 +163,7 @@ body {
 
 }
 
-.openTitle>div>h1:hover {
+.btn:hover {
     box-shadow: 0 0 0 5px #EED699;
     transition: box-shadow 0.2s ease-in-out;
 
@@ -177,17 +179,126 @@ body {
 
 }
 
+.instructions {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
 
+.instructions>h1 {
+    font-size: 24px;
+    font-weight: 700;
+    transition: font-size 0.2s ease-in-out;
+    margin-bottom: 10px;
+
+}
+
+.instructions>p {
+    font-size: 16px;
+    font-weight: 10;
+    transition: font-size 0.2s ease-in-out;
+    margin-bottom: 15px;
+
+}
+
+.instructionsCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 100%;
+
+}
+
+.instructionsCards>div {
+    text-align: left;
+    font-size: 10px;
+    line-height: 10px;
+    color: black;
+    background-color: white;
+    width: 230px;
+    padding: 15px;
+    padding-top: 22px;
+    border-radius: 25px;
+    margin-bottom: 5px;
+
+}
+
+.instructionsSections {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+
+}
+
+.instructionsSections>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+
+}
+
+.instructionsSections>div>p {
+    width: 90%;
+    font-size: 16px;
+
+}
+
+.instructionsSections>div>img {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 300px;
+
+}
 
 
 @media (max-width: 1280px) {
-
     .game {
 
         width: 100%;
 
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .instructions>h1 {
+        font-size: 18px;
+        transition: font-size 0.2s ease-in-out;
 
     }
+
+    .instructions>p {
+        font-size: 16px;
+        transition: font-size 0.2s ease-in-out;
+
+    }
+
+    .instructions>div {
+
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .btnPool {
+
+        width: 45px;
+        height: 45px;
+        transition: box-shadow 0.2s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
+    }
+
 
 
 
