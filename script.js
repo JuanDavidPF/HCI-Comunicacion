@@ -1,12 +1,12 @@
 let openTitle = document.querySelector(".openTitle")
 let openTitleLogo = document.querySelector(".openTitle>div")
 let openTitleBtn = document.querySelector(".openTitle>h1")
-let openTitleLvl1 = document.querySelector(".openTitle>img")
+let openTitleImg = document.querySelector(".openTitle>img")
 let instrucciones = document.querySelectorAll(".instructions")
 let instruccionesBtn = document.querySelectorAll(".btnHelp")
 
 
-let nivel = "menu"
+let nivel = 0
 
 
 
@@ -21,18 +21,28 @@ openTitleBtn.addEventListener("click", function () {
 
     setTimeout(function () {
 
-        openTitleLvl1.style.display = "block"
+        openTitleImg.style.display = "block"
         openTitleLogo.style.display = "none"
     }, 700)
 
     setTimeout(function () {
-        openTitleLvl1.style.opacity = "1"
-        openTitleLvl1.classList.add("slideInUp")
-        nivel = 1
+        openTitleImg.style.opacity = "1"
+        openTitleImg.classList.add("slideInUp")
+        if (nivel == 0) nivel = 1
     }, 800)
 
 
     if (nivel == 1) {
+        openTitle.classList.add("slideOutUp")
+
+        setTimeout(function () {
+            openTitle.style.opacity = "0"
+
+        }, 300)
+    }
+
+
+    if (nivel == 2) {
         openTitle.classList.add("slideOutUp")
 
         setTimeout(function () {
@@ -59,15 +69,18 @@ de la ciudad.. Entusiasmada emprende el viaje, al llegar se da cuenta de que su 
 
 let phrase = story.split(". ")
 let phraseBackup = story.split(". ")
-
+let game = document.querySelector(".game")
 let board = document.querySelector(".board")
 let pool = document.querySelector(".pool")
 let btnPool = document.querySelector(".btnPool")
 let poolWords = document.querySelector(".poolWords")
+let gameOver = document.querySelector(".gameOver")
+let gameOverImg = document.querySelector(".gameOver>div>img")
+let gameOverH1 = document.querySelector(".gameOver>div>h1")
+let gameOverBtn = document.querySelector(".btnGameOver")
 let cardsCreated = false;
 let poolClosed = false
 let poolOpened = true
-
 let wordCards
 let mistakes = 0
 let boardCards
@@ -84,7 +97,7 @@ for (let index = 0; index < instruccionesBtn.length; index++) {
 
         setTimeout(function () {
             instrucciones[nivel - 1].style.display = "none";
-            board.style.filter = "none"
+            board.classList.remove("blur")
             poolWords.classList.add("fadeIn")
 
             if (cardsCreated == false) {
@@ -146,7 +159,7 @@ function createCards() {
     cardsCreated = true
 }
 
-
+//closes the modal of gameOver
 
 
 
@@ -200,9 +213,7 @@ function shuffle(array) {
     return array;
 }
 
-
 //finish
-
 
 function mistakeCount() {
 
@@ -216,11 +227,60 @@ function mistakeCount() {
         }
 
         if (mistakes == 0) {
-            alert("VICTORIA")
+
+            gameOverH1.style.display = "none"
+            gameOverImg.src = "./data/win.png"
+
         } else {
-            alert("TUVISTE " + mistakes + " ERRORES")
+            gameOverH1.textContent = mistakes + " ERRORES"
+            gameOverImg.src = "./data/lose.png"
         }
+
+        game.classList.add("blur")
+        gameOver.style.display = "flex"
+
+        setTimeout(function () {
+            gameOver.style.opacity = "1"
+
+        }, 1)
+
+    }
+}
+
+gameOverBtn.addEventListener("click", function () {
+    game.classList.remove("blur")
+    gameOver.style.opacity = "0"
+
+    setTimeout(function () {
+        gameOver.style.display = "none"
+    }, 500)
+
+
+    openTitle.style.opacity = "1"
+    openTitleImg.src = "./data/level2.png"
+    nivel = 2
+    openTitle.classList.remove("slideOutUp")
+
+
+    //borra todas las tarjetas
+    for (let i = 0; i < wordCards.length; i++) {
+        board.removeChild(wordCards[i])
 
     }
 
-}
+
+    setTimeout(function () {
+        openTitle.classList.add("slideInDown")
+
+    }, 1)
+
+    setTimeout(function () {
+        instrucciones[nivel - 1].style.display = "flex"
+    }, 1000)
+
+
+
+
+
+
+})
