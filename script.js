@@ -75,6 +75,7 @@ let game = document.querySelector(".game")
 let board = document.querySelector(".board")
 let pool = document.querySelector(".pool")
 let btnPool = document.querySelector(".btnPool")
+let btnArrow = document.querySelector(".btnPool>img")
 let poolWords = document.querySelector(".poolWords")
 let gameOver = document.querySelector(".gameOver")
 let gameOverImg = document.querySelector(".gameOver>div>img")
@@ -246,6 +247,7 @@ function createCards() {
 function poolMovement() {
 
     if (poolOpened) {
+        btnArrow.src = "./data/btnUp.png"
         board.style.height = "550px"
         pool.style.height = "150px"
         setTimeout(function () {
@@ -255,7 +257,7 @@ function poolMovement() {
     }
 
     if (poolClosed) {
-
+        btnArrow.src = "./data/btnDown.png"
         board.style.height = "25%"
         pool.style.height = "75%"
         setTimeout(function () {
