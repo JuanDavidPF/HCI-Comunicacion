@@ -108,10 +108,14 @@ body {
 
 .boardCard {
     color: black;
-    background-color: #EED699;
-
-
+    font-weight: 600;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 5px;
+    border-color: #EED699;
 }
+
+
 
 .openTitle {
 
@@ -158,19 +162,21 @@ body {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     width: 120px;
-    background-color: #EED699;
+    background-color: rgb(177, 75, 75);
     font-size: 20px;
     padding: 10px 30px;
     color: #FAFAFA;
+    font-weight: 100;
     border-radius: 50px;
     cursor: pointer;
-    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
 }
 
 .btn:hover {
-    box-shadow: 0 0 0 5px #EED699;
-    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 0 5px #F36D6D;
+    background-color: #F36D6D;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
 }
 
@@ -346,7 +352,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 90%;
+    width: 100%;
     height: 500px;
 
 }
@@ -357,7 +363,7 @@ body {
     flex-direction: column;
     background-color: #EED699;
     border-radius: 25px;
-    width: 300px;
+    width: 350px;
     height: 100%;
     justify-content: space-evenly;
     align-items: center;
@@ -372,8 +378,9 @@ body {
 
 .juegoNivel2>div>div {
     background-color: white;
-    width: 90%;
-    height: 40%;
+    border-radius: 40px;
+    width: 92%;
+    height: 42%;
     display: flex;
     flex-direction: column;
     align-items: center;

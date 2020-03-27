@@ -83,7 +83,9 @@ let cardsCreated = false;
 let poolClosed = false
 let poolOpened = true
 let wordCards
+let mistake = false
 let mistakes = 0
+let success = 0
 let boardCards
 let tarjetonInicio
 
@@ -191,7 +193,7 @@ function createCards() {
                     wordCards[i].classList.remove("boardCard")
                     wordCards[i].classList.add("poolCard")
                     poolWords.appendChild(wordCards[i])
-                    mistakes = 0
+
 
                 }
             }
@@ -287,12 +289,20 @@ function shuffle(array) {
 
 function mistakeCount() {
 
-    if (boardCards.length >= phraseBackup.length) {
+    if (boardCards.length == phraseBackup.length) {
+
+        mistakes = 0
+        mistake = false;
+        success = 0
 
         for (let i = 0; i < phraseBackup.length; i++) {
 
             if (phraseBackup[i] != boardCards[i].textContent) {
+                mistake = true;
                 mistakes += 1
+            } else if (phraseBackup[i] == boardCards[i].textContent && !mistake) {
+
+                success += 1
             }
         }
 
@@ -302,7 +312,7 @@ function mistakeCount() {
             gameOverImg.src = "./data/win.png"
 
         } else {
-            gameOverH1.textContent = mistakes + " ERRORES"
+            gameOverH1.textContent = parseInt((success / phraseBackup.length) * 100) + "% DE LA HISTORIA"
             gameOverImg.src = "./data/lose.png"
         }
 
@@ -315,23 +325,20 @@ function mistakeCount() {
         }, 1)
 
         if (nivel == 1) {
-            total += (80 / phraseBackup.length) * (phraseBackup.length - mistakes)
+            total += (80 / phraseBackup.length) * success
 
         }
 
         if (nivel == 2 || nivel == 3) {
-            total += (phraseBackup.length - mistakes) * 15
+            total += success * (60 / phraseBackup.length)
 
         }
-
     }
-
 }
 
 gameOverBtn.addEventListener("pointerdown", function () {
 
     cardsCreated = false;
-    mistakes = 0
     game.classList.remove("blur")
     gameOver.style.opacity = "0"
 
@@ -347,9 +354,9 @@ gameOverBtn.addEventListener("pointerdown", function () {
         }
 
         nivel = 2
-        story = `Un hombre, colmado de tristeza y desolación por la muerte de su esposa, decide explorar un bosque al que ella tanto anhelaba ir.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo por aquel bosque cuando encontró una cabaña entre varios árboles,. al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.`
+        story = `Un hombre, colmado de tristeza y desolación por la muerte de su esposa, decide explorar un bosque al que ella tanto anhelaba ir.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo por aquel bosque cuando encontró una cabaña entre varios árboles.. Al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.`
         phraseBackup = story.split(". ")
-        story = `Un hombre, colmado de tristeza y desolación por la muerte de su esposa, decide explorar un bosque al que ella tanto anhelaba ir.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo por aquel bosque cuando encontró una cabaña entre varios árboles,. al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.. Un hombre que deseaba pasar unas merecidas vacaciones, decidió ir a visitar la torre Eiffel.. De la nada, su esposa se empieza a marear y deciden detenerse a descansar.. De la nada, su esposa se empieza a marear y deciden detenerse a descansar.. Apasionado por la zoología en particular por la observación de pájaros, decide adentrarse en ese bosque.. Asombrado por la opulencia de la entrada, el hombre decide entrar en aquel ascensor.`
+        story = `Un hombre, colmado de tristeza y desolación por la muerte de su esposa, decide explorar un bosque al que ella tanto anhelaba ir.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo por aquel bosque cuando encontró una cabaña entre varios árboles.. Al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.. Un hombre que deseaba pasar unas merecidas vacaciones, decidió ir a visitar la torre Eiffel.. De la nada, su esposa se empieza a marear y deciden detenerse a descansar.. De la nada, su esposa se empieza a marear y deciden detenerse a descansar.. Apasionado por la zoología en particular por la observación de pájaros, decide adentrarse en ese bosque.. Asombrado por la opulencia de la entrada, el hombre decide entrar en aquel ascensor.`
         phrase = story.split(". ")
         openTitle.style.opacity = "1"
         openTitleImg.src = "./data/level2.png"
