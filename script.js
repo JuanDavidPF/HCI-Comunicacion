@@ -57,16 +57,7 @@ openTitleBtn.addEventListener("pointerdown", function () {
 
 
 
-let story = `Una chica ha planeado un viaje con su novio, han quedado de encontrarse en la finca de su familia al sur 
-de la ciudad.. Entusiasmada emprende el viaje, al llegar se da cuenta de que su novio se ha retrasado
- y que deberá esperar.. Sin pensarlo dos veces entra en la casa y pretende prepararle una sorpresa.. Al 
- entrar la casa empieza a recordar momentos en su infancia, se queda mirando fijamente a ventana. pero se 
- sorprende al encontrar un hombre realmente apuesto observándola de lejos.. El hombre se acerca y le 
- tiende la mano, ella amablemente lo saluda y le explica su situación.. El hombre no deja de mirarla con 
- intensidad y se acerca a sus labios, ella no puede alejarse y pasan la noche juntos.. Al día siguiente se 
- levanta en la cama de un hospital como única sobreviviente de un accidente de carretera.. Su pronóstico es 
- reservado, acaba de escuchar que el doctor le dice a su colega.. "A esta paciente no le queda más de 
- una hora de vida".`
+let story = `Una chica ha planeado un viaje con su novio, han quedado de encontrarse en la finca de su familia al sur de la ciudad.. Entusiasmada emprende el viaje, al llegar se da cuenta de que su novio se ha retrasado y que deberá esperar.. Por lo que decide aprovechar el tiempo y prepararle una sorpresa.. Al entrar la casa empieza a recordar momentos en su infancia, se queda mirando fijamente a ventana.... pero se sorprende al encontrar un hombre realmente apuesto observándola de lejos.. El hombre se acerca y le tiende la mano, ella amablemente lo saluda y le explica su situación.. El hombre no deja de mirarla con intensidad y se acerca a sus labios,. ella no puede alejarse y pasan la noche juntos.. Al día siguiente se levanta en la cama de un hospital como única sobreviviente de un accidente de carretera.. Su pronóstico es reservado, acaba de escuchar que el doctor le dice a su colega.... "no me quiero imaginar lo que hubiese pasado si ella no hubiese llevado cinturón".`
 
 
 let phrase = story.split(". ")
@@ -356,9 +347,9 @@ gameOverBtn.addEventListener("pointerdown", function () {
         }
 
         nivel = 2
-        story = `Un hombre decidió explorar un bosque desconocido, cada vez se adentro más en el.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo cuando encontró una cabaña entre varios árboles.. Al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.`
+        story = `Un hombre, colmado de tristeza y desolación por la muerte de su esposa, decide explorar un bosque al que ella tanto anhelaba ir.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo por aquel bosque cuando encontró una cabaña entre varios árboles,. al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.`
         phraseBackup = story.split(". ")
-        story = `Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Un hombre deseaba pasar unas merecidas vacaciones en una playa a las afueras de la ciudad.. Al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.. De la nada, el cielo se empieza a nublar y una lluvia torrencial cae sobre los hombros de ella.. Un hombre decidió explorar un bosque desconocido, cada vez se adentro más en el.. Tras caminar largos trayectos siguiendo aquel mapa, logra ver dos pequeñas cabañas que parecen abandonadas.. Caminaba sin rumbo cuando encontró una cabaña entre varios árboles.. Apasionado por la zoología en particular por la observación de aves, decide adentrarse en ese bosque.. Asombrado por la opulencia de la entrada, el hombre decide entrar a aquel edificio.`
+        story = `Un hombre, colmado de tristeza y desolación por la muerte de su esposa, decide explorar un bosque al que ella tanto anhelaba ir.. Cuando empezó a anochecer, su sentido de orientación ya no funcionaba bien.. Caminaba sin rumbo por aquel bosque cuando encontró una cabaña entre varios árboles,. al golpear la puerta, no recibió respuesta y como estaba abierta decidió entrar.. Un hombre que deseaba pasar unas merecidas vacaciones, decidió ir a visitar la torre Eiffel.. De la nada, su esposa se empieza a marear y deciden detenerse a descansar.. De la nada, su esposa se empieza a marear y deciden detenerse a descansar.. Apasionado por la zoología en particular por la observación de pájaros, decide adentrarse en ese bosque.. Asombrado por la opulencia de la entrada, el hombre decide entrar en aquel ascensor.`
         phrase = story.split(". ")
         openTitle.style.opacity = "1"
         openTitleImg.src = "./data/level2.png"
@@ -410,9 +401,9 @@ gameOverBtn.addEventListener("pointerdown", function () {
         nivel = 3
         juegoNivel2[0].style.display = "none"
         juegoNivel2[1].style.display = "flex"
-        story = `Al cabo de un rato comenzó a tener sueños extraños.. donde aquéllos de los cuadros gritaban de dolor por ayuda y golpeaban los vidrios que los protegían.. A la mañana siguiente, despertó aterrorizado, al darse cuenta de que.. no había pinturas en la cabaña, solo ventanas.`
+        story = `Al cabo de un rato comenzó a tener sueños extraños,. en los que los personajes de los cuadros gritaban de dolor por ayuda y golpeaban los vidrios que los protegían.. A la mañana siguiente, despertó aterrorizado, al darse cuenta de que. no había pinturas en la cabaña, solo ventanas...`
         phraseBackup = story.split(". ")
-        story = `Al cabo de un rato comenzó a tener sueños extraños.. A la mañana siguiente, despertó aterrorizado, al darse cuenta de que.. En ese momento lo entendió, ahora él era parte de la colección de porcelanas que había en la cabaña.. no había pinturas en la cabaña, solo ventanas.. abandonado por la sociedad, rodeado de otros vagabundos que consumían drogas para olvidar sus problemas.. en los que los personajes de los cuadros gritaban de dolor por ayuda y golpeaban los vidrios que los protegían.. Tiempo después despertó bajo el puente de siempre.. todo lo que había en aquel edificio estaba pintado.. El cuerpo de ella yace acostado, parece dormida y ahí lo comprende todo, había muerto.. Se encontraba sentada en el comedor, cenando con su familia.. donde aquéllos de los cuadros gritaban de dolor por ayuda y golpeaban los vidrios que los protegían.`
+        story = `Al cabo de un rato comenzó a tener sueños extraños,. en los que los personajes de los cuadros gritaban de dolor por ayuda y golpeaban los vidrios que los protegían.. A la mañana siguiente, despertó aterrorizado, al darse cuenta de que. no había pinturas en la cabaña, solo ventanas.... Se encontraba sentada en el comedor, cenando con su esposa.. En ese momento lo entendió, ahora él era parte de la colección de porcelanas que había en aquel faro.. todo lo que había en aquel restaurante estaba pintado.. abandonado por la sociedad, rodeado de otros vagabundos que consumían drogas para olvidar sus problemas.. El cuerpo de ella yace acostado, parece dormida y ahí lo comprende todo, había muerto.`
         phrase = story.split(". ")
         if (cardsCreated == false) {
             createCards();
@@ -439,6 +430,28 @@ gameOverBtn.addEventListener("pointerdown", function () {
             end.style.opacity = "1"
         }, 1)
 
+        christian()
     }
 
 })
+
+
+
+//esta función ocurre una vez haya acabado la interacción, haz el cambio dentro del setTimeout
+
+function christian() {
+    total = parseInt(total);
+
+
+    setTimeout(function () {
+
+        //aqui dentro haz el script para empalmarlo con lo demas
+
+
+        console.log(total)
+
+
+
+
+    }, 3000)
+}
