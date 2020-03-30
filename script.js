@@ -9,7 +9,6 @@ let instruccionesBtn = document.querySelectorAll(".btnHelp")
 let nivel = 0
 
 
-
 openTitleBtn.addEventListener("pointerdown", function () {
     openTitleLogo.classList.add("slideOutUp")
 
@@ -241,8 +240,8 @@ function poolMovement() {
 
     if (poolOpened) {
         btnArrow.src = "./data/btnUp.png"
-        board.style.height = "550px"
-        pool.style.height = "150px"
+        board.style.width = "550px"
+        pool.style.width = "150px"
         setTimeout(function () {
             poolOpened = false;
             poolClosed = true;
@@ -251,8 +250,8 @@ function poolMovement() {
 
     if (poolClosed) {
         btnArrow.src = "./data/btnDown.png"
-        board.style.height = "25%"
-        pool.style.height = "75%"
+        board.style.width = "25%"
+        pool.style.width = "75%"
         setTimeout(function () {
             poolOpened = true;
             poolClosed = false;
